@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "starterApp",
+    "description": "starterApp",
+    "slug": "starterApp",
+    "privacy": "unlisted",
+    "orientation": "portrait",
+    "sdkVersion": "22.0.0",
+    "version": "1.0.0",
+    "primaryColor": "#cccccc",
+    "icon": "./assets/icons/app-icon.png",
+    "loading": {
+      "icon": "./assets/images/app-icon.png",
+      "backgroundImage": "./assets/images/app-icon.png",
+      "hideExponentText": true
+    },
+    "packagerOpts": {
+      "assetExts": [
+        "ttf",
+        "mp4"
+      ]
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mynewmood.starter"
+    },
+    "android": {
+      "package": "com.mynewmood.starter",
+      "versionCode": 1,
+      "permissions": []
+    }
+  },
+  "androidStatusBarColor": "#0066A1",
+  "androidStatusBar": {
+    "barStyle": "light-content",
+    "backgroundColor": "#334393"
+  }
+
+}
