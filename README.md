@@ -1,1 +1,1 @@
-Philips
+StarterApp

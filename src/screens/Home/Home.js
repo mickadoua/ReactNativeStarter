@@ -2,6 +2,7 @@ import React from 'react';
 import {Dimensions, Modal, ScrollView, StyleSheet, Text, View} from 'react-native'
 import {connect} from "react-redux";
 import {Container} from "native-base";
+import {pickActions} from "../../state/index";
 
 const {width} = Dimensions.get('window');
 class Home extends React.Component {
@@ -28,6 +29,7 @@ class Home extends React.Component {
 const mapStateToProps = (state) => {
     //console.log('NEW STATE => ', state.pages)
     return {
+        favorites: selectors.getUserFavorites(state)
 
     }
 };
@@ -39,5 +41,5 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    pickActions('setFavoriteChips')
 )(Home)

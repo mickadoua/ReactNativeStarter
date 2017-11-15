@@ -2,12 +2,12 @@ import React from 'react';
 import {StatusBar, StyleSheet, View, AsyncStorage, Platform} from 'react-native';
 import {Provider} from "react-redux";
 import {createLogger} from "redux-logger";
-import {applyMiddleware, compose, createStore} from "redux";
+import {applyMiddleware, compose} from "redux";
 import thunkMiddleware from 'redux-thunk'
 import persistState from 'redux-localstorage'
 import adapter from 'redux-localstorage/lib/adapters/AsyncStorage';
-import philipsApp from './state/Reducer'
-import RootNavigation from "./navigation/RootNavigation";
+import { store, selectors, pickActions } from './src/state';
+import RootNavigation from "./src/navigation/RootNavigation";
 import {AppLoading} from "expo";
 
 const storage = adapter(AsyncStorage);
@@ -22,7 +22,7 @@ const enhancer = compose(
     persistState(storage, 'myStorage')
 );
 
-const store = createStore(philipsApp, enhancer);
+//const store = createStore(myApp, enhancer);
 
 
 export default class App extends React.Component {
