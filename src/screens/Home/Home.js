@@ -1,8 +1,8 @@
 import React from 'react';
 import {Dimensions, Modal, ScrollView, StyleSheet, Text, View} from 'react-native'
 import {connect} from "react-redux";
-import {Container} from "native-base";
-import {pickActions} from "../../state/index";
+import {Container, Header, Title} from "native-base";
+import {pickActions, selectors} from "../../state/index";
 
 const {width} = Dimensions.get('window');
 class Home extends React.Component {
@@ -17,7 +17,11 @@ class Home extends React.Component {
     render() {
         return (
             <Container>
-
+                <Header>
+                    <Title>StartApp</Title>
+                </Header>
+                <Text> My fav chips is {this.props.favorites.chips} My fav drink is {this.props.favorites.drink} </Text>
+                <Text> this.props.setFavoriteChips('')</Text>
             </Container>
 
         );
@@ -27,17 +31,12 @@ class Home extends React.Component {
 
 //container
 const mapStateToProps = (state) => {
-    //console.log('NEW STATE => ', state.pages)
     return {
         favorites: selectors.getUserFavorites(state)
 
     }
 };
-const mapDispatchToProps = (dispatch) => {
-    return {
 
-    }
-};
 
 export default connect(
     mapStateToProps,
