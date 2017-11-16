@@ -10,6 +10,7 @@
     "babel": true
   },
   "dependencies": {
+    "@expo/vector-icons": "^6.2.0",
     "expo": "^22.0.0",
     "modular-redux-thunk": "^1.0.0-beta6",
     "native-base": "^2.3.1",
