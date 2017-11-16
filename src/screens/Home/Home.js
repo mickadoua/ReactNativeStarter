@@ -7,7 +7,6 @@ import HomeComponent from "./HomeComponent";
 const mapStateToProps = (state) => {
     return {
         favorites: selectors.getUserFavorites(state)
-
     }
 };
 
