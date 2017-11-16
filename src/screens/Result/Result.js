@@ -1,17 +1,15 @@
 import React from 'react';
 import {Dimensions, FlatList, Modal, ScrollView, StyleSheet, Text, View} from 'react-native'
 import {connect} from "react-redux";
-import {Container, Content, Header, Title} from "native-base";
+import {Container, Content, H1} from "native-base";
 import {pickActions, selectors} from "../../state/index";
-import SearchbarComponent from "./components/SearchbarComponent";
-import CategoryComponent from "./components/CategoryComponent";
-import BannerComponent from "./components/BannerComponent";
+import Header from "../../components/Header/Header";
+import PropTypes from 'prop-types';
 import style from "./style";
-import HeaderHomeComponent from "./components/HeaderHomeComponent";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 const {width} = Dimensions.get('window');
-
-class Home extends React.Component {
+class Result extends React.Component {
 
     constructor(props) {
         super(props);
@@ -23,25 +21,22 @@ class Home extends React.Component {
     render() {
         return (
             <Container>
-                <HeaderHomeComponent/>
+                <Header />
                 <Content
-                    padder
-                    contentContainerStyle={{ paddingBottom: 20 }}
-                    showsVerticalScrollIndicator={true}
-                >
-                    <SearchbarComponent/>
-
+                    padder>
+                    <H1>Serrures</H1>
+                   {/* <FilterOrderbyComponent/> todo fix it*/}
                     <FlatList
-                        numColumns={2}
+                        numColumns={1}
                         contentContainerStyle={style.categories}
+                        keyExtractor={(item, index) => index}
                         style={style.listWrapper}
-                        data={['verrous',1,2,3,4,5]} // this.props.projects
-                        renderItem={({item}) =>  <CategoryComponent key={item} name={item} />}
+                        data={[1,2,3,4,5]} // this.props.projects
+
+                        renderItem={({item}) =>  <ProductCard key={item} onPress={() => console.log('productCard')} />}
                     />
 
-                    <BannerComponent />
                 </Content>
-
             </Container>
         );
     }
@@ -59,4 +54,4 @@ const mapStateToProps = (state) => {
 export default connect(
     mapStateToProps,
     pickActions('setFavoriteChips')
-)(Home)
+)(Result)

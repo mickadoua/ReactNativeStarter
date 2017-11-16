@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "starterApp",
-    "description": "starterApp",
-    "slug": "starterApp",
+    "name": "serrupro",
+    "description": "serrupro",
+    "slug": "serrupro",
     "privacy": "unlisted",
     "orientation": "portrait",
     "sdkVersion": "22.0.0",
@@ -22,10 +22,10 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.mynewmood.starter"
+      "bundleIdentifier": "com.mynewmood.serrupro"
     },
     "android": {
-      "package": "com.mynewmood.starter",
+      "package": "com.mynewmood.serrupro",
       "versionCode": 1,
       "permissions": []
     }
