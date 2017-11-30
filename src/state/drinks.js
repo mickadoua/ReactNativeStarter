@@ -1,4 +1,5 @@
 import { combineModules, settableValue } from 'modular-redux-thunk';
+import actionTypes from "redux-localstorage/src/actionTypes";
 const actions = {};
 const reducers = {};
 const selectors = {};
@@ -9,6 +10,9 @@ const SET_FAVORITE_DRINK = `${ACTION_PREPEND}/SET_FAVORITE_DRINK`;
 const favorite = {
     reducer: (state = 'unknown', action) => {
         switch(action.type) {
+            case actionTypes.INIT:
+                return !!action.payload  ? action.payload.drinks.favorite : state;
+
             case SET_FAVORITE_DRINK: return action.newFav;
             default: return state;
         };

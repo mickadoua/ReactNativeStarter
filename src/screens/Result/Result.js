@@ -13,10 +13,6 @@ class Result extends React.Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            promptVisible: false,
-        };
     }
     render() {
         return (
@@ -25,13 +21,12 @@ class Result extends React.Component {
                 <Content
                     padder>
                     <H1>Serrures</H1>
-                   {/* <FilterOrderbyComponent/> todo fix it*/}
                     <FlatList
                         numColumns={1}
                         contentContainerStyle={style.categories}
                         keyExtractor={(item, index) => index}
                         style={style.listWrapper}
-                        data={[1,2,3,4,5]} // this.props.projects
+                        data={[1,2,3,4,5]}
 
                         renderItem={({item}) =>  <ProductCard key={item} onPress={() => console.log('productCard')} />}
                     />

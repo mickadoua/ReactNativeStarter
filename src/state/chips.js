@@ -1,3 +1,5 @@
+import actionTypes from "redux-localstorage/src/actionTypes";
+
 const actions = {};
 const reducers = {};
 const selectors = {};
@@ -6,6 +8,9 @@ const ACTION_PREPEND = 'my-react-app/chips';
 const SET_FAVORITE_CHIPS = `${ACTION_PREPEND}/SET_FAVORITE_CHIPS`;
 reducers.favorite = (state = 'unknown', action) => {
     switch(action.type) {
+        case actionTypes.INIT:
+            return !!action.payload  ? action.payload.chips.favorites : state;
+
         case SET_FAVORITE_CHIPS: return action.newFav;
         default: return state;
     };
