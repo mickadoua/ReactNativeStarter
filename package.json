@@ -9,11 +9,19 @@
   "quokka": {
     "babel": true
   },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "npm test -- --watch"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
   "dependencies": {
     "@expo/vector-icons": "^6.2.0",
     "expo": "^23.0.0",
     "modular-redux-thunk": "^1.0.0-beta6",
     "native-base": "^2.3.1",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "react": "16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
