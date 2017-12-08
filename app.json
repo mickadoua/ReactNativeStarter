@@ -9,7 +9,7 @@
     "version": "1.0.0",
     "primaryColor": "#cccccc",
     "icon": "./assets/icons/app-icon.png",
-    "loading": {
+    "splash": {
       "icon": "./assets/icons/app-icon.png",
       "backgroundImage": "./assets/icons/app-icon.png",
       "hideExponentText": true
