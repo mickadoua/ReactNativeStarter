@@ -6,35 +6,43 @@ const selectors = {};
 const ACTION_PREPEND = 'my-react-app/chips';
 
 const SET_FAVORITE_CHIPS = `${ACTION_PREPEND}/SET_FAVORITE_CHIPS`;
+// The initial state of the App
+const initialState = fromJS({});
 reducers.favorite = (state = 'unknown', action) => {
-    switch(action.type) {
-        case actionTypes.INIT:
-            return !!action.payload  ? action.payload.chips.favorites : state;
+  switch(action.type) {
+    case actionTypes.INIT:
+      return !!action.payload  ? action.payload.chips.favorites : state;
 
-        case SET_FAVORITE_CHIPS: return action.newFav;
-        default: return state;
-    };
+    case SET_FAVORITE_CHIPS: return action.newFav;
+
+    case LOAD_REPOS: //ex with immatable
+      return state
+          .set('loading', true)
+          .set('error', false)
+          .setIn(['userData', 'repositories'], false);
+    default: return state;
+  };
 };
 actions.setFavoriteChips = (newFav) => {
-    return {
-        type: SET_FAVORITE_CHIPS,
-        newFav
-    };
+  return {
+    type: SET_FAVORITE_CHIPS,
+    newFav
+  };
 };
 selectors.getFavoriteChips = (chipsState) => chipsState.favorite;
 
 const SET_CHIPS_FOR_SALE = `${ACTION_PREPEND}/SET_CHIPS_FOR_SALE`;
 reducers.chipsForSale = (state = [], action) => {
-    switch(action.type) {
-        case SET_CHIPS_FOR_SALE: return action.chips;
-        default: return state;
-    };
+  switch(action.type) {
+    case SET_CHIPS_FOR_SALE: return action.chips;
+    default: return state;
+  };
 };
 actions.setChipsForSale = (chips) => {
-    return {
-        type: SET_CHIPS_FOR_SALE,
-        chips
-    };
+  return {
+    type: SET_CHIPS_FOR_SALE,
+    chips
+  };
 };
 selectors.getChipsForSale = (chipsState) => chipsState.chips;
 
